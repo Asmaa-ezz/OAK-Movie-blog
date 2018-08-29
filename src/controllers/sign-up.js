@@ -5,7 +5,7 @@ const insertUser = require('./../model/queries/addUser');
 
 //load  sign up page
 exports.get = (req, res) => {
-    res.render('sign-up', { stylefile: "sign_up", domfile:"sign-up",title:"Sign Up"});
+    res.render('sign-up', { stylefile: "sign_up", domfile: "sign-up", title: "Sign Up" });
 }
 // add user to database
 exports.post = (req, res, next) => {
@@ -45,3 +45,4 @@ const hash = (str, callback) => {
             });
     });
 }
+

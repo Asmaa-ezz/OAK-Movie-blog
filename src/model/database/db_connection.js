@@ -2,13 +2,14 @@ const { Pool } = require('pg');
 const url = require('url');
 require('env2')('./config.env');
 
-const DB_URL = process.env.DB_URL;
+let DB_URL = process.env.DB_URL;
 
 if (process.env.NODE_ENV)
-    DB_URL = TEST_DB_URL;
+    DB_URL = process.env.TEST_DB_URL;
 
 if (!DB_URL)
     throw new TypeError('The DB_URL  Is Not Found');
+console.log(DB_URL);
 
 const params = url.parse(DB_URL);
 const [username, password] = params.auth.split(':');
