@@ -4,6 +4,7 @@ const sign_in = require('./sign-in');
 const sign_up = require('./sign-up');
 const home = require('./home');
 const error = require('./error');
+const details = require('./details');
 
 // to home page
 router.get('/', home.get);
@@ -15,6 +16,10 @@ router.post('/sign_in', sign_in.post);
 // to sign up
 router.get('/sign_up', sign_up.get);
 router.post('/sign_up', sign_up.post);
+
+// to details
+router.get('/details', details.get);
+router.post('/details', details.post);
 
 
 // to error 404

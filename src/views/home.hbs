@@ -1,17 +1,18 @@
 <section class="main">
-    <h1>Home Page</h1>
-
     <div class="container">
         <div class="dev-img">
-            img
+            {{#each movie}}
+                <img id={{this.id}} class="random-img" src="{{this.img}}" alt="img of movie">
+            {{/each}}
         </div>
         <div class="search">
             <label for="search">
-                <input type="search" id="search">
+                <input type="search" id="search" class="search-input" placeholder="Search..">
+                <button type="submit" id="search-but" class="button">search</button>
             </label>
         </div>
         <div class="result">
-            result
         </div>
     </div>
 </section>
+
