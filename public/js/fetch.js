@@ -5,7 +5,8 @@ const fetch1 = (URL, method, file, callback) => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         let response = xhr.responseText;
-        response = JSON.parse(response);
+        if (response)
+          response = JSON.parse(response);
         if (response.result) {
           callback(null, response.result);
         } else {

@@ -38,8 +38,8 @@ but.addEventListener('click', (e) => {
       if (err) alert(err.message);
       // console.log(result.movies)
       let imgResult;
-      imgSerch.textContent = '' ;
-      result.movies.forEach((x,i) => {
+      imgSerch.textContent = '';
+      result.movies.forEach((x, i) => {
         const object = {
           id: x.id,
           title: x.title,
@@ -51,18 +51,11 @@ but.addEventListener('click', (e) => {
         };
         movie.push(object);
         imgResult = document.createElement('IMG');
-        imgResult.addEventListener('click',(t)=>{
-          fetch1('/details', 'POST', object, (err, result) => {
-            if (err) console.log(err);
-            else console.log('pass', result);
-          });
-        })
         imgResult.src = movie[i].large_cover_image;
-        imgResult.setAttribute('class','random-img');
+        imgResult.setAttribute('class', 'random-img');
         imgSerch.appendChild(imgResult);
       });
     });
   } else {
-    alert('fill the filed');
   }
 });

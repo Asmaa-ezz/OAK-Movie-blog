@@ -9,12 +9,15 @@ const router = require('./controllers/index');
 
 // Middleware
 const app = express();
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookie());
 app.use((req, res, next) => {
-    unlockCookie(req, res, next);
+  unlockCookie(req, res, next);
 });
+
 
 // handlebar options
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +31,6 @@ app.engine('hbs', handlebars({
 }));
 
 
-app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(router);
 
 module.exports = app;
