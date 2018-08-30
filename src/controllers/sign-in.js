@@ -4,12 +4,16 @@ const { compare } = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.get = (req, res) => {
-    res.render('sign-in',{stylefile:"sign_in",domfile:"sign-in",title:"Sign In"});
+
+
+    if (req.unlockCookie)
+        res.render('home', { stylefile: "sign_in", domfile: "sign-in", title: "Sign In" });
+    else
+        res.render('sign-in', { stylefile: "sign_in", domfile: "sign-in", title: "Sign In" });
 }
 
 exports.post = (req, res) => {
     const data = req.body;
-
     checkUser(data, (err, result) => {
         checkUsername(data, err, result, res, data.username);
     });
@@ -48,13 +52,11 @@ const checkPassword = (password, hash, res, username) => {
 
 // make encrypted cookie 
 const makeCookie = (username, res) => {
-
     jwt.sign({ "username": username }, process.env.SECRET, (err, result) => {
         if (err)
             res.send({ "err": "There Is Error Sorry About That", result: null });
         else {
-            console.log(result);
-            res.cookie('jwt', result, { httpOnly: true, secure: true });
+            res.cookie('jwt', result, { maxAge: 900000, httpOnly: true });
             res.send({ "err": null, result: '/home' });
         }
     });
