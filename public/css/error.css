@@ -1,0 +1,12 @@
+* {
+    background-color: #F5F5F5 ;
+}
+main {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.img {
+    height: 90vh;
+    width: 100%;
+}
