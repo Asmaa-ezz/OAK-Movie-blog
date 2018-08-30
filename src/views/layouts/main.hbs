@@ -2,25 +2,28 @@
 <html lang="en">
 
 <head>
-    {{>head}}
+{{>head}}
 </head>
 
 <body>
 
-<header class="navbar">
-    {{>header}}
-</header>
 
-<main class="main">
+
+    <!--  Header  -->
+
+  {{>header}}
+
+    <!-- End Of Header-->
+
+    <!-- Main Section -->
+    <main>
     {{{body}}}
-</main>
+    </main>
+    <!-- End Of Main Section -->
 
-<footer class="footer">
-    {{>footer}}
-</footer>
-
-<script src="/js/{{js}}.js"></script>
 
 </body>
+<script src="./js/fetch.js"></script>
+<script src="./js/{{domfile}}.js"></script>
 
 </html>

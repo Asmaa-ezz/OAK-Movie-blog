@@ -7,7 +7,12 @@ const home = require('./home');
 
 router.get('/', home.get);
 
-router.get('/sign_in',sign_in.get);
-router.get('/sign_up',sign_up.get);
+// to sign in
+router.get('/sign_in', sign_in.get);
+router.post('/sign_in', sign_in.post);
+
+// to sign up
+router.get('/sign_up', sign_up.get);
+router.post('/sign_up', sign_up.post);
 
 module.exports = router;
