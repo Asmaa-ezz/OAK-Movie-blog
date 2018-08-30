@@ -7,7 +7,7 @@ exports.get = (req, res) => {
 
 
     if (req.unlockCookie)
-        res.render('home', { stylefile: "sign_in", domfile: "sign-in", title: "Sign In" });
+        res.redirect('/home');
     else
         res.render('sign-in', { stylefile: "sign_in", domfile: "sign-in", title: "Sign In" });
 }
