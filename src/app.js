@@ -4,12 +4,16 @@ const router = require('./controllers/index');
 const path = require('path');
 const cookie = require('cookie-parser');
 const handlebars = require('express-handlebars');
+const { unlockCookie } = require('./middlewares');
 
 // Middleware
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookie('asdgasd21351235123gsadaf'));
+app.use(cookie());
+app.use((req, res, next) => {
+    unlockCookie(req, res, next);
+});
 
 //handlebar options
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +23,7 @@ app.engine('hbs', handlebars({
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     defaultLayout: 'main',
-
-}))
+}));
 
 
 app.use(express.static(path.join(__dirname, '..', 'public')));

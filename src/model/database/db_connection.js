@@ -9,7 +9,6 @@ if (process.env.NODE_ENV)
 
 if (!DB_URL)
     throw new TypeError('The DB_URL  Is Not Found');
-console.log(DB_URL);
 
 const params = url.parse(DB_URL);
 const [username, password] = params.auth.split(':');
