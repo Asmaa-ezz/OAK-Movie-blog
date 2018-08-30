@@ -14,9 +14,11 @@ exports.get = (req, res) => {
 
 exports.post = (req, res) => {
     const data = req.body;
+    console.log(req.unlockCookie);
     checkUser(data, (err, result) => {
         checkUsername(data, err, result, res, data.username);
     });
+
 }
 
 
