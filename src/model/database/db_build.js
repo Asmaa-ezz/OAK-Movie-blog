@@ -9,4 +9,5 @@ const buildDB = () => {
     });
 
 }
+buildDB();
 module.exports = buildDB;
